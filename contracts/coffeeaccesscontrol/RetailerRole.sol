@@ -7,7 +7,7 @@ import "./Roles.sol";
 contract RetailerRole {
   using Roles for Roles.Role;
 
-  // Define 2 events, one for Adding, and other for Removing
+  // Define 2 events, one for Adding accounts, and other for Removing accounts
   event RetailerAdded(address indexed account);
   event RetailerRemoved(address indexed account);
   

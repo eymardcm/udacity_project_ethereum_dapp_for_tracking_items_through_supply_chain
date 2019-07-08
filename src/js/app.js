@@ -60,6 +60,7 @@ App = {
         /// Modern dapp browsers...
         if (window.ethereum) {
             App.web3Provider = window.ethereum;
+            
             try {
                 // Request account access
                 await window.ethereum.enable();

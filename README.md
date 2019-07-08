@@ -12,11 +12,11 @@ Data diagram (mapping out the structure of our smart contract and their inherita
 The Roles library is used which allows simple creation and management of different roles, and then provides access controls for these.
 
 #### Contract Address: 
-https://rinkeby.etherscan.io/address/0xec59189ce859f5b07e852db0d81315c7c7377857
+https://rinkeby.etherscan.io/address/0x8e802c9ef712e0fa8cbc44829b58ac1a5ad22029
 #### Contract Hash: 
-0x3e9ca69e205a3b7416d72b450a83a7d61f89a6c994c2bb759b8a25919552520b
+0x7036a54ab7d6d56aed027480b7cef9a73cbfd430d01070965b7e7a6e2be47888
 #### Transaction Hash: 
-0x0b1abe0170c4c6cf521dbb3a3f6b48d2497d98a08d419fee630d840ef5920828
+0xfe485c2a16215835ad9fb9684cab1f1a276ed2bac33b957e473efe9b89021cb9
 
 ## Versions
 Truffle v4.1.13 (core: 4.1.13)
