@@ -11,11 +11,11 @@ Data diagram (mapping out the structure of our smart contract and their inherita
 ## Libraries
 The Roles library is used which allows simple creation and management of different roles, and then provides access controls for these.
 
-### Contract Address: 
+#### Contract Address: 
 https://rinkeby.etherscan.io/address/0x199f175071d03f423d1014fc28c4d81a2d33dbcb
-### Contract Hash: 
+#### Contract Hash: 
 0x7ba938c496d172474f4acbf792ff97bdda0cddf742d6603667c7116462f373d0
-### Transaction Hash: 
+#### Transaction Hash: 
 0xdb6544245290906c3b9071e4f2c7b1a8f768978bfc5497ca6fd177bc12c6b9ca
 
 ## Versions
