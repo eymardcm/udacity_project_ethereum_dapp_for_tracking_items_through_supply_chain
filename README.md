@@ -26,8 +26,15 @@ Solidity v0.4.24 (solc-js)
 1.  truffle compile
 2.  truffle test
 
-## Instruction for Running the Front End App
-1. npm run dev
+## Instruction for Running the Smart Contract and Front End App in local development environment
+1.  truffle compile
+2.  truffle migrate --reset (deploy the contract to ganache)
+3.  npm run dev (to start the front end app)
+4.  http://localhost:3000/
 
 ## Instruction for Deploying the Smart Contract to Rinkeby Testnet
-1.  truffle migrate --network rinkeby
+1.  Connect to the Rinkeby testnet with Metamask
+2.  In Metamask, select an account with Ether (note: the role of FarmRole, DistributorRole, RetailerRole, and ConsumerRole contracts you deploy in the next step will be assigned this account address.  During testing, do not switch accounts.)
+3.  truffle migrate --network rinkeby
+4.  npm run dev
+5.  http://localhost:3000/
