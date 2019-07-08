@@ -21,3 +21,13 @@ https://rinkeby.etherscan.io/address/0x199f175071d03f423d1014fc28c4d81a2d33dbcb
 ## Versions
 Truffle v4.1.13 (core: 4.1.13)
 Solidity v0.4.24 (solc-js)
+
+## Instructions for Testing the Smart Contract
+1.  truffle compile
+2.  truffle test
+
+## Instruction for Deploying the Smart Contract to Rinkeby Testnet
+1.  truffle migrate --network rinkeby
+
+## Instruction for Running the Front End App
+1. npm run dev
