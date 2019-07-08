@@ -8,8 +8,12 @@ Activity diagram (mapping out the activities of each participant)
 Sequence diagram (mapping out the functions that will be used and the sequence of them)
 State diagram (mapping out the state changes to the item(s) being tracked)
 Data diagram (mapping out the structure of our smart contract and their inheritance)
+
 ## Libraries
 The Roles library is used which allows simple creation and management of different roles, and then provides access controls for these.
+
+## IPFS 
+Not used in this project.
 
 #### Contract Address: 
 https://rinkeby.etherscan.io/address/0x8e802c9ef712e0fa8cbc44829b58ac1a5ad22029
