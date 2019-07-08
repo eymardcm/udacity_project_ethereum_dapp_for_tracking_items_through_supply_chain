@@ -54,6 +54,46 @@ contract('SupplyChain', function(accounts) {
   console.log('Retailer: accounts[3] ', accounts[3]);
   console.log('Consumer: accounts[4] ', accounts[4]);
 
+  // 0.0 Test
+  // it('Creator address becomes first of each role', async () => {
+  //   // Get deployed contract
+  //   let instance = await SupplyChain.deployed();
+  //   // Perform a function of the contract
+  //   let farmerBool = await instance.isFarmer(accounts[0]);
+  //   let distributorBool = await instance.isDistributor(accounts[0]);
+  //   let retailerBool = await instance.isRetailer(accounts[0]);
+  //   let consumerBool = await instance.isConsumer(accounts[0]);
+  //   // Assert if result is equal to something, and if not send a message
+  //   assert.isTrue(farmerBool, 'creator is harvester');
+  //   assert.isTrue(distributorBool, 'creator is distributor');
+  //   assert.isTrue(retailerBool, 'creator is retailer');
+  //   assert.isTrue(consumerBool, 'creator is consumer');
+  // });
+
+  // 0.1
+  it('Can assign addresses to roles', async () => {
+    // Get deployed contract
+    let instance = await SupplyChain.deployed();
+
+    // Add respective entities to the contract
+    await instance.addFarmer(originFarmerID);
+    await instance.addDistributor(distributorID);
+    await instance.addRetailer(retailerID);
+    await instance.addConsumer(consumerID);
+
+    // Return true or false if respective entity is assigned
+    let farmerBool = await instance.isFarmer(originFarmerID);
+    let distributorBool = await instance.isDistributor(distributorID);
+    let retailerBool = await instance.isRetailer(retailerID);
+    let consumerBool = await instance.isConsumer(consumerID);
+
+    // Assert if result is equal to something, and if not send a message
+    assert.isTrue(farmerBool, 'account1 is farmer');
+    assert.isTrue(distributorBool, 'account2 is distributor');
+    assert.isTrue(retailerBool, 'account3 is retailer');
+    assert.isTrue(consumerBool, 'account4 is consumer');
+  });
+
   // 1st Test
   it('Testing smart contract function harvestItem() that allows a farmer to harvest coffee', async () => {
     const supplyChain = await SupplyChain.deployed();
