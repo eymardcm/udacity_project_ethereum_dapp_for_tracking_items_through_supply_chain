@@ -55,20 +55,16 @@ contract('SupplyChain', function(accounts) {
   console.log('Consumer: accounts[4] ', accounts[4]);
 
   // 0.0 Test
-  // it('Creator address becomes first of each role', async () => {
-  //   // Get deployed contract
-  //   let instance = await SupplyChain.deployed();
-  //   // Perform a function of the contract
-  //   let farmerBool = await instance.isFarmer(accounts[0]);
-  //   let distributorBool = await instance.isDistributor(accounts[0]);
-  //   let retailerBool = await instance.isRetailer(accounts[0]);
-  //   let consumerBool = await instance.isConsumer(accounts[0]);
-  //   // Assert if result is equal to something, and if not send a message
-  //   assert.isTrue(farmerBool, 'creator is harvester');
-  //   assert.isTrue(distributorBool, 'creator is distributor');
-  //   assert.isTrue(retailerBool, 'creator is retailer');
-  //   assert.isTrue(consumerBool, 'creator is consumer');
-  // });
+  it('Creator can transfer creator role to Farmer', async () => {
+    // Get deployed contract
+    let instance = await SupplyChain.deployed();
+
+    // Perform a function of the contract
+    await instance.transferOwnership(accounts[1], { from: ownerID });
+
+    // Assert if result is equal to something, and if not send a message
+    // assert.equal(instance.owner(), originFarmerID, 'owner is not the farmer');
+  });
 
   // 0.1
   it('Can assign addresses to roles', async () => {

@@ -16,11 +16,11 @@ The Roles library is used which allows simple creation and management of differe
 Not used in this project.
 
 #### Contract Address: 
-https://rinkeby.etherscan.io/address/0x8e802c9ef712e0fa8cbc44829b58ac1a5ad22029
+https://rinkeby.etherscan.io/address/0xb92473d300ede5a626bdf66516e5ca189cce5950
 #### Contract Hash: 
-0x7036a54ab7d6d56aed027480b7cef9a73cbfd430d01070965b7e7a6e2be47888
+0x2994e50af441c7b341c56355fec312f470037393c8551fb8ad94d2bdd4da79e2
 #### Transaction Hash: 
-0xfe485c2a16215835ad9fb9684cab1f1a276ed2bac33b957e473efe9b89021cb9
+0x2994e50af441c7b341c56355fec312f470037393c8551fb8ad94d2bdd4da79e2
 
 ## Versions
 Truffle v4.1.13 (core: 4.1.13)
@@ -38,7 +38,7 @@ Solidity v0.4.24 (solc-js)
 
 ## Instruction for Deploying the Smart Contract to Rinkeby Testnet
 1.  Connect to the Rinkeby testnet with Metamask
-2.  In Metamask, select an account with Ether (note: the role of FarmRole, DistributorRole, RetailerRole, and ConsumerRole contracts you deploy in the next step will be assigned this account address.  During testing, do not switch accounts.)
+2.  In Metamask, select an account with Ether
 3.  truffle migrate --network rinkeby
 4.  npm run dev
 5.  http://localhost:3000/

@@ -10,7 +10,7 @@ import '../coffeecore/Ownable.sol';
 contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, ConsumerRole {
 
   // Define 'contractOwner'
-  address contractOwner;
+  // address contractOwner;
 
   // Define a variable called 'upc' for Universal Product Code (UPC)
   uint  upc;
@@ -70,10 +70,10 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
   event Purchased(uint upc);
 
   // Define a modifer that checks to see if msg.sender == contractOwner of the contract
-  modifier onlyOwner() {
-    require(msg.sender == contractOwner);
-    _;
-  }
+  // modifier onlyOwner() {
+  //   require(msg.sender == contractOwner);
+  //   _;
+  // }
 
   // Define a modifer that verifies the Caller
   modifier verifyCaller (address _address) {
@@ -147,20 +147,20 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
   // and set 'sku' to 1
   // and set 'upc' to 1
   constructor() public payable {
-    contractOwner = msg.sender;
+    // contractOwner = msg.sender;
     sku = 1;
     upc = 1;
   }
 
   // Define a function 'kill' if required
   function kill() public {
-    if (msg.sender == contractOwner) {
-      selfdestruct(contractOwner);
+    if (msg.sender == owner()) {
+      selfdestruct(msg.sender);
     }
   }
 
   // Define a function 'harvestItem' that allows a farmer to mark an item 'Harvested'
-  function harvestItem(uint _upc, address _originFarmerID, string _originFarmName, string _originFarmInformation, string  _originFarmLatitude, string  _originFarmLongitude, string  _productNotes) verifyCaller(_originFarmerID) onlyFarmer public 
+  function harvestItem(uint _upc, address _originFarmerID, string _originFarmName, string _originFarmInformation, string  _originFarmLatitude, string  _originFarmLongitude, string  _productNotes) verifyCaller(_originFarmerID) onlyFarmer onlyOwner public 
   {
     Item storage item = items[_upc];
 
@@ -183,7 +183,7 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
   }
 
   // Define a function 'processtItem' that allows a farmer to mark an item 'Processed'
-  function processItem(uint _upc) harvested(_upc) verifyCaller(items[_upc].originFarmerID) onlyFarmer public 
+  function processItem(uint _upc) harvested(_upc) verifyCaller(items[_upc].originFarmerID) onlyOwner public 
   // Call modifier to check if upc has passed previous supply chain stage
   
   // Call modifier to verify caller of this function
@@ -197,7 +197,7 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
   }
 
   // Define a function 'packItem' that allows a farmer to mark an item 'Packed'
-  function packItem(uint _upc) processed(_upc) verifyCaller(items[_upc].originFarmerID) onlyFarmer public 
+  function packItem(uint _upc) processed(_upc) verifyCaller(items[_upc].originFarmerID)  onlyOwner public 
   // Call modifier to check if upc has passed previous supply chain stage
   
   // Call modifier to verify caller of this function
@@ -210,7 +210,7 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
   }
 
   // Define a function 'sellItem' that allows a farmer to mark an item 'ForSale'
-  function sellItem(uint _upc, uint _price) packed(_upc) verifyCaller(items[_upc].originFarmerID) onlyFarmer public 
+  function sellItem(uint _upc, uint _price) packed(_upc) verifyCaller(items[_upc].originFarmerID) onlyOwner public 
   // Call modifier to check if upc has passed previous supply chain stage
   
   // Call modifier to verify caller of this function
@@ -219,6 +219,9 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
     // Update the appropriate fields
     items[_upc].itemState = State.ForSale;
     items[_upc].productPrice = _price;
+
+    renounceOwnership();
+
     // Emit the appropriate event
     emit ForSale(_upc);
   }
